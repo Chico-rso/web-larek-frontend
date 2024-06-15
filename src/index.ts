@@ -90,7 +90,7 @@ events.on(`basket:open`, () => {
 			}
 		);
 		return itemInBasket.render({
-			name: card.name,
+			title: card.title,
 			price: card.price,
 			index: index + 1,
 			id: card.id
@@ -119,7 +119,7 @@ events.on(`basket:changed`, () => {
 			}
 		);
 		return itemInBasket.render({
-			name: card.name,
+			title: card.title,
 			price: card.price,
 			index: index + 1,
 			id: card.id

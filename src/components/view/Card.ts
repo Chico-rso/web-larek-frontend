@@ -28,7 +28,6 @@ export class Card extends Component<IProduct> {
 		this._image = this.container.querySelector(`.card__image`);
 
 		this._description = this.container.querySelector(`.${blockName}__text`);
-		// this._index = this.container.querySelector(`.basket__item-index`);
 
 		this._button = this.container.querySelector(`.${blockName}__button`);
 		this._index = this.container.querySelector(`.basket__item-index`);
@@ -45,6 +44,7 @@ export class Card extends Component<IProduct> {
 		this._price = ensureElement<HTMLImageElement>(`.${blockName}__price`, container);
 		this._button = container.querySelector(`.${blockName}__button`);
 		this._description = container.querySelector(`.${blockName}__text`);
+		this._category = container.querySelector(`.${blockName}__category`);
 
 		if (actions?.onClick) {
 			if (this._button) {
@@ -77,6 +77,21 @@ export class Card extends Component<IProduct> {
 
 	set description(value: string) {
 		this.setText(this._description, value)
+	}
+
+	set category(value: string) {
+		this.setText(this._category, value);
+
+		const categoryColors = {
+			'другое': 'card__category_other',
+			'дополнительное': 'card__category_additional',
+			'кнопка': 'card__category_button',
+			'хард-скил': 'card__category_hard',
+			'софт-скил': 'card__category_soft',
+		}
+
+		// @ts-ignore
+		this._category?.classList.add(categoryColors[value]);
 	}
 
 	set price(value: number | null) {

@@ -1,12 +1,10 @@
-export type ProductCategory = 'софт-скил' | 'другое' | 'дополнительное' | 'кнопка' | 'хард-скил';
-
 export interface IProduct {
 	id: string;
-	name: string;
+	title: string;
 	price: number | null;
 	image: string;
 	description: string;
-	category: ProductCategory;
+	category: string;
 	index?: number
 }
 

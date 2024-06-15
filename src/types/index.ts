@@ -1,28 +1,63 @@
-// Тип для товара
-export interface Product {
+export interface IMainPage {
+	counter: number;
+	catalog: HTMLElement[];
+}
+
+export interface IProduct {
 	id: string;
 	name: string;
-	price: number;
+	price: number | null;
 	image: string;
 	description: string;
 	category: string;
 }
 
-// Тип для элемента корзины
-export interface CartItem {
-	product: Product;
-	quantity: number;
+// тип состояния приложения
+export interface IAppState {
+	catalog: IProduct[];
+	basket: IProduct[];
+	preview: string | null;
+	order: IOrder | null;
+	loading: boolean;
+	setCatalog: (catalog: IProduct[]) => void;
+	getResultBasket: () => IBasket;
 }
 
-// Тип для корзины
-export interface Cart {
-	items: CartItem[];
+export interface IModal {
+	title: string;
+	content: HTMLElement[];
 }
 
-// Тип для инрмации о заказе
-export interface OrderInfo {
-	paymentMethod: string;
-	deliveryAddress: string;
+export interface IBasket {
+	items: IProduct[];
+	total: number;
+}
+
+export interface IOrder {
+	payment: string;
+	address: string;
+}
+
+export interface IFormValidation {
+	valid: boolean;
+	errors: string[];
+}
+
+export interface IDeliveryForm {
+	payment: string;
+	address: string;
+}
+
+export interface IContactForm {
 	email: string;
 	phone: string;
+}
+
+export interface ISuccessForm {
+	description: number;
+}
+
+export interface ISuccessfulOrder {
+	id: string;
+	total: number;
 }

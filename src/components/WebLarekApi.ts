@@ -1,5 +1,5 @@
 import { Api, ApiListResponse } from './base/api';
-import { IOrder, IOrderPost, IOrderResult, IProduct } from '../types';
+import { IOrderPost, IOrderResult, IProduct } from '../types';
 
 export class WebLarekApi extends Api {
 	protected _cdn: string;

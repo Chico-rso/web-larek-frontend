@@ -1,7 +1,4 @@
-export interface IMainPage {
-	counter: number;
-	catalog: HTMLElement[];
-}
+export type ProductCategory = 'софт-скил' | 'другое' | 'дополнительное' | 'кнопка' | 'хард-скил';
 
 export interface IProduct {
 	id: string;
@@ -9,43 +6,20 @@ export interface IProduct {
 	price: number | null;
 	image: string;
 	description: string;
-	category: string;
+	category: ProductCategory;
+	index?: number
 }
 
-// тип состояния приложения
 export interface IAppState {
 	catalog: IProduct[];
 	basket: IProduct[];
-	preview: string | null;
 	order: IOrder | null;
-	loading: boolean;
-	setCatalog: (catalog: IProduct[]) => void;
-	getResultBasket: () => IBasket;
+	formErrors: IFormErrors;
 }
 
-export interface IModal {
-	title: string;
-	content: HTMLElement[];
-}
-
-export interface IBasket {
-	items: IProduct[];
+export type IOrderPost = IOrder & {
 	total: number;
-}
-
-export interface IOrder {
-	payment: string;
-	address: string;
-}
-
-export interface IFormValidation {
-	valid: boolean;
-	errors: string[];
-}
-
-export interface IDeliveryForm {
-	payment: string;
-	address: string;
+	items: string[];
 }
 
 export interface IContactForm {
@@ -53,11 +27,18 @@ export interface IContactForm {
 	phone: string;
 }
 
-export interface ISuccessForm {
-	description: number;
+export interface IOrderForm {
+	payment: string;
+	address: string;
+}
+export interface  ISuccessForm {
+	total: number;
 }
 
-export interface ISuccessfulOrder {
+export interface IOrderResult {
 	id: string;
 	total: number;
 }
+
+export type IFormErrors = Partial<IOrder>;
+export type IOrder = IContactForm & IOrderForm;

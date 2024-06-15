@@ -1,7 +1,5 @@
 import './scss/styles.scss';
 
-import './scss/styles.scss';
-
 import { IFormErrors, IOrder, IOrderResult, IProduct } from './types';
 import { EventEmitter } from './components/base/events';
 import { cloneTemplate, ensureElement } from './utils/utils';

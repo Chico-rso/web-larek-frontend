@@ -40,7 +40,6 @@ export class Card extends Component<IProduct> {
 		}
 
 		this._title = ensureElement<HTMLElement>(`.${blockName}__title`, container);
-		// this._image = ensureElement<HTMLImageElement>(`.${blockName}__image`, container);
 		this._price = ensureElement<HTMLImageElement>(`.${blockName}__price`, container);
 		this._button = container.querySelector(`.${blockName}__button`);
 		this._description = container.querySelector(`.${blockName}__text`);

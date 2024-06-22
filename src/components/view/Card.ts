@@ -90,7 +90,7 @@ export class Card extends Component<IProduct> {
 		}
 
 		// @ts-ignore
-		this._category?.classList.add(categoryColors[value]);
+		this.toggleClass(this._category, categoryColors[value], true);
 	}
 
 	set price(value: number | null) {
